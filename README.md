@@ -1,16 +1,16 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/Demon-Ryan/plain-words/main/logo.png" width="100" alt="Plain Words">
-  
-  <h2>大白话 · Plain Words</h2>
-  
-  <p>让 AI 说人话的 Agent Skill</p>
-  
+<p align="center"><img src="https://github.com/Demon-Ryan/plain-words/raw/main/logo.png" width="100" alt="Plain Words"></p>
+
+<h2 align="center">大白话 · Plain Words</h2>
+
+<p align="center">让 AI 说人话的 Agent Skill</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="MIT">
   <img src="https://img.shields.io/badge/Platform-TRAE%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20WorkBuddy-blue" alt="Platforms">
   <img src="https://img.shields.io/github/stars/Demon-Ryan/plain-words?style=social" alt="Stars">
-  
-  <p><sub>An Agent Skill that translates AI's technical answers into plain language.</sub></p>
-</div>
+</p>
+
+<p align="center"><sub>An Agent Skill that translates AI's technical answers into plain language.</sub></p>
 
 ---
 
@@ -196,6 +196,4 @@ MIT — 随便用、随便改、随便分享。
 
 ---
 
-<div align="center">
-  <sub>觉得有用？点个 ⭐ Star 让更多人发现它</sub>
-</div>
+<p align="center"><sub>觉得有用？点个 ⭐ Star 让更多人发现它</sub></p>

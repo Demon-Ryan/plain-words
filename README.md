@@ -1,18 +1,16 @@
-<p align="center">
-  <img src="./logo.png" width="100" alt="Plain Words">
-</p>
-
-<p align="center"><b>大白话 · Plain Words</b></p>
-
-<p align="center">让 AI 说人话的 Agent Skill</p>
-
-<p align="center">
+<div align="center">
+  <img src="https://raw.githubusercontent.com/Demon-Ryan/plain-words/main/logo.png" width="100" alt="Plain Words">
+  
+  <h1>大白话 · Plain Words</h1>
+  
+  <p>让 AI 说人话的 Agent Skill</p>
+  
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="MIT">
   <img src="https://img.shields.io/badge/Platform-TRAE%20%7C%20Claude%20Code%20%7C%20Codex%20%7C%20WorkBuddy-blue" alt="Platforms">
   <img src="https://img.shields.io/github/stars/Demon-Ryan/plain-words?style=social" alt="Stars">
-</p>
-
-<p align="center"><sub>An Agent Skill that translates AI's technical answers into plain language.</sub></p>
+  
+  <p><sub>An Agent Skill that translates AI's technical answers into plain language.</sub></p>
+</div>
 
 ---
 
@@ -50,59 +48,97 @@
 
 ## 安装
 
-### 方式一：TRAE 插件市场（推荐，最简单）
+"大白话"分两部分，需要都装上才能完整生效。**第一步装系统规则，第二步装 Skill。**
+
+### 第一步：设置系统规则（必做）
+
+这是每次对话都生效的基础规则，放在你 AI 工具的**系统设置**里。
+
+1. 打开仓库里的 [system-rules.md](./system-rules.md) 文件
+2. 复制里面"中文版"那段 8 条规则
+3. 粘贴到你 AI 工具的系统设置（System Settings / Custom Instructions / 系统提示词）里
+4. 保存
+
+**为什么要先做这步？** 这 8 条规则很简短（约 500 tokens），不占多少上下文，但能保证 AI 每次对话都自动遵守"术语要注释、命令要解释、步骤要傻瓜化"这些底线。
+
+### 第二步：安装 Skill（三选一）
+
+**方式一：TRAE 插件市场（推荐，最简单）**
 
 1. 下载本仓库的 `plain-words-for-trae.zip`
 2. 打开 TRAE → 插件市场 → 上传技能
 3. 选择下载的 zip 文件，点确认即可
 
-### 方式二：手动放置
+**方式二：手动放置**
 
 把 `plain-language/` 文件夹复制到你项目的 `.trae/skills/` 目录里。没有 `.trae` 文件夹就自己建一个（注意前面有个 `.`）。
 
-### 方式三：其他平台（Claude Code、Codex 等）
+**方式三：其他平台（Claude Code、Codex 等）**
 
 把 `plain-language/` 放到对应平台的 skills 目录。找不到目录？打开 `SKILL.md`，把内容复制粘贴到自定义指令（Custom Instructions）里，效果一样。
 
 > ## Installation
 >
-> **Method 1 (Recommended):** Download `plain-words-for-trae.zip` → TRAE → Plugin Marketplace → Upload Skill → Select zip → Confirm.
+> "Plain language" works in two parts. **Step 1: set up system rules. Step 2: install the Skill.**
 >
-> **Method 2:** Copy `plain-language/` folder into your project's `.trae/skills/` directory. Create `.trae/` if it doesn't exist (note the leading dot).
+> ### Step 1: Set Up System Rules (Required)
 >
-> **Method 3 (Other platforms):** Place `plain-language/` in the platform's skills directory. Or copy `SKILL.md` content into Custom Instructions — same effect.
+> These are baseline rules that apply to every conversation. Place them in your AI tool's **system settings**.
+>
+> 1. Open [system-rules.md](./system-rules.md) from this repo
+> 2. Copy the 8 rules under "中文版" (or "English")
+> 3. Paste into your AI tool's System Settings / Custom Instructions / System Prompt
+> 4. Save
+>
+> **Why first?** These 8 rules are short (~500 tokens) but ensure the AI always follows the basics: term annotations, command notes, beginner-friendly steps.
+>
+> ### Step 2: Install the Skill (Choose One)
+>
+> **Method A (Recommended):** Download `plain-words-for-trae.zip` → TRAE → Plugin Marketplace → Upload Skill → Select zip → Confirm.
+>
+> **Method B:** Copy `plain-language/` folder into your project's `.trae/skills/` directory. Create `.trae/` if it doesn't exist (note the leading dot).
+>
+> **Method C (Other platforms):** Place `plain-language/` in the platform's skills directory. Or copy `SKILL.md` content into Custom Instructions — same effect.
 
 ---
 
 ## 用法
 
-安装后在对话里说任意一句即可触发：
+安装后在对话里说任意一句即可触发深度模式：
 
 `"说人话"` · `"看不懂"` · `"太专业了"` · `"简单说一下"` · `"这是什么意思"`
+
+没说这些词也没关系——第一步的系统规则每次都在生效，只是不会加载完整术语表。
 
 > ## Usage
 >
 > After installation, say any of: `"explain like I'm five"` · `"too technical"` · `"what does this mean"` · `"simplify"`
+>
+> Even without these triggers, the system rules from Step 1 are always active — they just won't load the full glossary.
 
 ---
 
 ## 两层设计
 
-| | 始终生效 | 深度模式 |
+| | 系统规则（第一步） | 本 Skill（第二步） |
 |--|---------|---------|
-| **触发** | 每次对话 | 你说"不懂"时 |
-| **内容** | 术语括号标注、命令注释、风险提示 | 加载完整术语表（60+）、概念关联、弹窗权限解释 |
-| **Token** | ~1500 | 额外 ~2300 |
+| **放在哪** | AI 工具的系统设置里 | 项目文件夹的 skills 目录里 |
+| **什么时候生效** | 每次对话都生效 | 你说"不懂"时才触发 |
+| **内容** | 8 条底线要求（很短） | 60+ 术语、概念关联、弹窗权限（很长） |
+| **Token** | ~500 | ~1500–4000（按需加载） |
 
-基础规则每次都生效，深度模式按需加载，不浪费上下文。
+一个打底，一个增强，互不冲突。系统规则是"每次都提醒 AI 照顾小白"，Skill 是"你说不懂了就给 AI 一份完整术语词典"。
 
 > ## Two-Tier Design
 >
-> | | Always On | Deep Mode |
+> | | System Rules (Step 1) | This Skill (Step 2) |
 > |--|-----------|-----------|
-> | **Trigger** | Every chat | When you say "I don't get it" |
-> | **Content** | Term annotations, command notes | Full glossary (60+), concept maps, permission guides |
-> | **Tokens** | ~1500 | +2300 |
+> | **Where** | AI tool's system settings | Project folder's skills directory |
+> | **When** | Every conversation | When you say "I don't get it" |
+> | **Content** | 8 short baseline rules | 60+ terms, concept maps, permission guides |
+> | **Tokens** | ~500 | ~1500–4000 (on-demand) |
+>
+> One sets the foundation, one provides the firepower. No conflict.
 
 ---
 
@@ -136,21 +172,6 @@
 
 ---
 
-## 系统规则配合
-
-为了省上下文，"大白话"能力拆成两部分：
-
-- **系统规则**（放在 AI 工具设置里）：8 条底线，每次对话生效，约 500 tokens
-- **本 Skill**（放在项目里）：60+ 术语完整翻译，你说"不懂"时才加载
-
-一个打底，一个增强，互不冲突。系统规则内容见仓库 [system-rules.md](./system-rules.md)。
-
-> ## System Rules + Skill
->
-> Split into two parts: **System Rules** (8 baseline rules in AI settings, ~500 tokens) always on; **This Skill** (full glossary) loads on-demand. One sets the foundation, one provides the firepower.
-
----
-
 ## 贡献
 
 术语库越全越好用，欢迎完善！
@@ -175,6 +196,6 @@ MIT — 随便用、随便改、随便分享。
 
 ---
 
-<p align="center">
+<div align="center">
   <sub>觉得有用？点个 ⭐ Star 让更多人发现它</sub>
-</p>
+</div>

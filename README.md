@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/Demon-Ryan/plain-words/raw/main/logo.png" width="100" alt="Plain Words"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Demon-Ryan/plain-words/main/logo.png" width="100" alt="Plain Words"></p>
 
 <h2 align="center">大白话 · Plain Words</h2>
 

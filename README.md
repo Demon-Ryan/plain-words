@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/Demon-Ryan/plain-words/main/logo.png" width="100" alt="Plain Words">
   
-  <h1>大白话 · Plain Words</h1>
+  <h2>大白话 · Plain Words</h2>
   
   <p>让 AI 说人话的 Agent Skill</p>
   
@@ -56,7 +56,7 @@
 
 1. 打开仓库里的 [system-rules.md](./system-rules.md) 文件
 2. 复制里面"中文版"那段 8 条规则
-3. 粘贴到你 AI 工具的系统设置（System Settings / Custom Instructions / 系统提示词）里
+3. 粘贴到你 AI 工具的系统设置（System Settings / Custom Instructions / 系统提示词 / 规则与记忆）里
 4. 保存
 
 **为什么要先做这步？** 这 8 条规则很简短（约 500 tokens），不占多少上下文，但能保证 AI 每次对话都自动遵守"术语要注释、命令要解释、步骤要傻瓜化"这些底线。

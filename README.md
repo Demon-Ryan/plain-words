@@ -2,7 +2,7 @@
 
 <h2 align="center">大白话 · Plain Words</h2>
 
-<p align="center">让 AI 说人话的 Agent Skill</p>
+<p align="center">不讲开发术语，让 AI 讲大白话的 Agent Skill</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="MIT">
